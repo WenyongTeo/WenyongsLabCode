@@ -40,10 +40,10 @@ def nric():
 
     elif n[0] in ['S', 'T', 'F', 'G']:
         print('Valid')
+
     else:
         print("invalid")
 
 nric()
-
 
 
