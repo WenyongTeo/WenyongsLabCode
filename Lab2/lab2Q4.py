@@ -4,7 +4,7 @@
 
 def main():
     wordCheck= input('Enter the word: ')
-    if wordCheck == wordCheck[::-1] :
+    if wordCheck.upper() == wordCheck[::-1].upper() :
         print('It is a palindrome')
     else:
         print('It is not a palindrome')
