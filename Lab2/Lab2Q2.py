@@ -6,6 +6,6 @@
 
 def reverse():
    word1, word2= input('Enter words:').split(' ')
-   print('Reverse is:{}'.format(word1[::-1]), '{}'.format(word2[::-1])) #word[::-1] reverse the whole string
+   print('Reverse is:{} {}'.format(word1[::-1], word2[::-1])) #word[::-1] reverse the whole string
 
 reverse()

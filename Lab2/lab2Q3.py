@@ -5,7 +5,7 @@
 def main():
     number1 = int(input('Enter number 1: '))
     number2 = int(input('Enter number 2: '))
-    if number1 - number2 ==0:
+    if number1 - number2 == 0:
         print('The 2 numbers are the same')
 
     else:
