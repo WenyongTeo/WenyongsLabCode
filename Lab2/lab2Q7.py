@@ -40,10 +40,20 @@ def nric():
 
     elif n[0] in ['S', 'T', 'F', 'G']:
         print('Valid')
-
     else:
         print("invalid")
 
 nric()
 
 
+""""
+def nric():
+    n=input('Enter NRIC: ')
+    for i in n[1:8]:
+      if i.isdigit():
+        print("valid")
+      else:
+        print('invalid')
+
+nric()
+"""
