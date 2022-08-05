@@ -46,4 +46,14 @@ def nric():
 nric()
 
 
+""""
+def nric():
+    n=input('Enter NRIC: ')
+    for i in n[1:8]:
+      if i.isdigit():
+        print("valid")
+      else:
+        print('invalid')
 
+nric()
+""""
