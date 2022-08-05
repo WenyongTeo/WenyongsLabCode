@@ -1,0 +1,24 @@
+boolean data type - 2 values True, False
+Comparison operators: <, <=, >, >=, ==, !=
+
+Precedence Ranking
+=========================
+|1|**                   |
+|2|*, / , // , %        |
+|3|+ , -                |
+|4|<, <=, >, >=, ==, != |
+|5|=                    |
+=========================
+
+/n new line
+/t tab 8spaces
+
+Selection Structure
+One-way Selection - if
+Two-way Selection - if else
+Three-way Selection - if elif else
+
+Logical Operator
+OR
+AND
+NOT
