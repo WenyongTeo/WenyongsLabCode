@@ -40,3 +40,13 @@ def pay():
         print(f'The overtime pay after 12 hours is ${Overtime:.2f}')
 #pay()
 
+def nric():
+    n= input("Nric ")
+    if n[1:8].isalpha():
+        print("What? theres no 7 digits")
+    elif n[0] in ['S','T','F','G']:
+        print('Hello please its not true')
+    else:
+        print('invalid yo')
+nric()
+
