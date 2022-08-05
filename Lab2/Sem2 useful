@@ -19,6 +19,6 @@ Two-way Selection - if else
 Three-way Selection - if elif else
 
 Logical Operator
-OR
-AND
+OR                  mark < 0 or mark > 100
+AND                 mark >=0 and mark <= 100
 NOT
