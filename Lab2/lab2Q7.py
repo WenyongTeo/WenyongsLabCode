@@ -17,31 +17,17 @@ def nric():
     if len(n) > i:
         print('Must be exactly 9')
 
-    elif n[1].isalpha():
+    elif n[0] not in ['S', 'T', 'F', 'G']:
+        print('Invalid')
+
+    elif not n[1:8].isdigit():
         print('Must have 7 digit')
 
-    elif n[2].isalpha():
-        print('Must have 7 digit')
+    elif not n[8].isalpha():        #n[-1]
+        print('Last must be A-Z')
 
-    elif n[3].isalpha():
-        print('Must have 7 digit')
-
-    elif n[4].isalpha():
-        print('Must have 7 digit')
-
-    elif n[5].isalpha():
-        print('Must have 7 digit')
-
-    elif n[6].isalpha():
-        print('Must have 7 digit')
-
-    elif n[7].isalpha():
-        print('Must have 7 digit')
-
-    elif n[0] in ['S', 'T', 'F', 'G']:
-        print('Valid')
     else:
-        print("invalid")
+        print("Valid")
 
 nric()
 

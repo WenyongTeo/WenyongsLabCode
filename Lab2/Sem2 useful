@@ -20,5 +20,5 @@ Three-way Selection - if elif else
 
 Logical Operator
 OR                  mark < 0 or mark > 100
-AND                 mark >=0 and mark <= 100
+AND                 mark >=0 and mark <= 100 both need to be true first
 NOT

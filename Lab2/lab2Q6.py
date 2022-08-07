@@ -4,7 +4,7 @@
 #- “The 2 numbers are odd”
 #- “One number is even and the other is odd”
 
-def main():
+def main() -> object:
     number1= float(input("Enter number 1: "))
     number2= float(input('Enter number 2: '))
     if (number1 % 2) == 0 and (number2 % 2) == 0:

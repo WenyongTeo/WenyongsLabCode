@@ -8,9 +8,26 @@
 #SINGAPORE UNIVERSITY OF SOCIAL SCIENCES (SUSS) ICT133 Lab – Page 3 of 3
 #Run 2
 #Enter arithmetic expression: 85 % 15
-#Invalid arithmetic operato
+#Invalid arithmetic operation
 
 def Cal():
 
-    cp=float(input('Enter arithmetic expression: '))
+    ari1, ari2 = float(input('Enter arithmetic expression: ')).split('+,-,+,/')
+    add = ari1 + ari2
+    minus = ari1 - ari2
+    multiply = ari1 * ari2
+    division = ari1 / ari2
+    if ari1 + ari2:
+        print(f'{add}')
+    elif ari1 - ari2:
+        print(f'{minus}')
+    elif ari1 * ari2:
+        print(f'{multiply}')
+    elif ari1 / ari2:
+        print(f'{division}')
+    else:
+        print('not valid')
+
+
+Cal()
 
