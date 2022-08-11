@@ -17,7 +17,7 @@ def nric():
     if len(n) > i:
         print('Must be exactly 9')
 
-    elif n[0] not in ['S', 'T', 'F', 'G']:
+    elif n[0].upper() not in ['S', 'T', 'F', 'G']:
         print('Invalid')
 
     elif not n[1:8].isdigit():

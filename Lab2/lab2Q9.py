@@ -12,21 +12,6 @@
 
 def Cal():
 
-    ari1, ari2 = float(input('Enter arithmetic expression: ')).split('+,-,+,/')
-    add = ari1 + ari2
-    minus = ari1 - ari2
-    multiply = ari1 * ari2
-    division = ari1 / ari2
-    if ari1 + ari2:
-        print(f'{add}')
-    elif ari1 - ari2:
-        print(f'{minus}')
-    elif ari1 * ari2:
-        print(f'{multiply}')
-    elif ari1 / ari2:
-        print(f'{division}')
-    else:
-        print('not valid')
 
 
 Cal()
