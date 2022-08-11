@@ -10,9 +10,23 @@
 #Enter arithmetic expression: 85 % 15
 #Invalid arithmetic operation
 
-def Cal():
+
+def cal():
+    expression = input("Enter arithmetic expression: ")
+    num1, operator, num2 = expression.split()  # default is separator is space
+    num1, num2 = float(num1), float(num2)
+
+    if len(operator) != 1 or operator not in "+-*/":
+        print("Invalid arithmetic operator")
+    elif operator == "+":
+        print("Result: {}".format(num1+num2) )
+    elif operator == "-":
+        print("Result: {}".format(num1-num2) )
+    elif operator == "*":
+        print("Result: {}".format(num1*num2) )
+    else:
+        print("Result: {}".format(num1/num2) )
 
 
-
-Cal()
+cal()
 
