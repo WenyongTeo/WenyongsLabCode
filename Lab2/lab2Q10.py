@@ -18,4 +18,5 @@ def main():
     else:
         print('All 3 are unequal , Scalene')
 
+
 main()
