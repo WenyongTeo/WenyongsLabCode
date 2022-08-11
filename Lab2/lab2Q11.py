@@ -3,7 +3,6 @@
 >=1000 either pay 6 months interest 5%, 12 months interest 10%
 add interest then monthly
 '''
-
 def loan():
     pay= float(input('Enter amount$ '))
     if pay > 1000:

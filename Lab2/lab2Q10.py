@@ -1,4 +1,3 @@
-import math
 
 def main():
     side1 = float(input("Enter side 1 here "))
@@ -18,6 +17,5 @@ def main():
 
     else:
         print('All 3 are unequal , Scalene')
-
 
 main()
