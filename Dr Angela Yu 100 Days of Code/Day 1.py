@@ -35,8 +35,9 @@ pet=input("Please enter the name of your pet!\n")
 print(f"The name of your band will be '{city} {pet}'")
 print("The name of your ban will be " + city + " " + pet)
 #5. Make sure the input cursor shows on a new line, see the example at:
-#   https://replit.com/@appbrewery/band-name-generator-end
+#https://replit.com/@appbrewery/band-name-generator-end
 
+#my style of coding learnt from SUSS
 print("Band name Generator")
 city,pet= input("Enter your city and pet here ").split(' ')
 print(f'The name of your band will be {city} {pet}')
