@@ -1,6 +1,7 @@
 '''
 (while, sentinel loop) Write a program that displays the menu shown in the example run repeatedly until the user chooses 0 to quit.
 You may assume that user enters only valid numbers (0-3).
+can be used in TMA 4.
 '''
 def main():
     while True:
@@ -12,3 +13,5 @@ def main():
     print('End of program')
 
 main()
+
+

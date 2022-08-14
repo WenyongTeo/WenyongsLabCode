@@ -18,7 +18,7 @@ def main():
     sum = 0
     while True:
         quantity = int(input("Enter quantity: "))
-        if quantity == -1:
+        if quantity == -1: #real world, qty <= 0
             break
         unit = float(input('Enter unit price: '))
         subTotal = quantity*unit

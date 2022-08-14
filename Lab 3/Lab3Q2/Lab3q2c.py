@@ -25,5 +25,11 @@ def main():
         num = int(input("Times "))
         for i in range(num):
             print(word)
-main()
 
+
+    while word.upper() != 'EXIT':
+        n = int(input('Enter: '))
+        for i in range (n):
+            print(word)
+        word= input('Enter here: ')
+main()
