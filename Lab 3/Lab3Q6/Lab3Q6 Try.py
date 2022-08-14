@@ -6,3 +6,5 @@ Head or Tail (H or T): H
 Correct!
 (User can key his guess in uppercase or lowercase(that is, H or h or T or t). Any letter other than H or T is considered as an incorrect guess.
 '''
+#print(random.choice(mylist))
+
