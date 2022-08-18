@@ -1,0 +1,94 @@
+List
+[] [1,2,'nimama',3.3]
+Tuple
+() (1,2, 'nimama',3.3)
+
+Accessing elements
+Individual thro indexing
+[1,2,'nimama',3.3] [2] = 'nimama'
+
+contigous sequnce of element thro slicing
+[1,2,'nimama',3.3] [2:] = ['nimama',3.3]
+
+Combining elements
+t1 = (1, 2)
+t2 = (3,)
+t1+t2 = (1, 2, 3)
+t2*5 = (3, 3, 3, 3, 3)
+
+Immutable data types
+values cannot be changed
+int, float, str and tuple
+
+Mutable data types
+Values can be changed without changing identities
+myList = [34, 26, 15, 10]
+myList[2] = 12
+myList = [34, 26, 12, 10]
+
+printing sequnce elements
+for index in range(12):
+month {index + 1}
+= month 1
+month 2
+month 3....
+
+month = (31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+monthName = ('January', 'February', 'March', 'April', 'May', 'June', 'July', August', 'September', 'October', 'November', 'December')
+maxMonths = [monthName[index] for index in range( 12) if month[index] == max(month)]
+for m in maxMonths :
+print(m)
+Output:
+January
+March...
+
+Statistics with Lists
+def main():
+data = getNumbers()
+xbar = mean(data)
+std = stdDev(data, xbar)
+print("\nThe mean is", xbar)
+print("The standard deviation is", std)
+
+def getNumbers():
+nums = []
+xStr = input("Enter a number (<Enter> to quit) >> ")
+while xStr != "":
+    nums.append(float(xStr))
+    xStr = input("Enter a number (<Enter> to quit) >> ")
+return nums
+
+Scope of Variables
+Each function is a little subprogram
+    Variables in a function are local
+    Scopes - places a variable can be referenced
+
+Top-Down Design
+Express complex problem in terms of smaller, simpler problems repeatedly
+Continues until the problems are trivial to solve
+Put together the pieces as a solution to the original problem
+Each piece of solution is a function
+
+Scenario
+Guess the value of a dice
+Only 3 tries
+Dice value revealed after 3 tries
+After each game, prompt the player whether he wishes to play another game
+
+Top-Level Design
+The algorithm for the guess dice game:
+ Loop when player wants to play a game
+    Roll a dice
+    Play guessing game
+    Ask whether player wishes to play another game
+
+Ignore whatever we don’t know how to do first.
+
+Roll a dice
+rollDice function
+No need input from caller but give output to caller – the face value of the dice
+
+Play guessing game
+playGuessingGame function
+Input from caller: dice face value, but does not give output to caller
+
