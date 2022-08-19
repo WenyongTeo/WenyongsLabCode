@@ -5,7 +5,7 @@ def getIntegerRange(prompt, min, max):
         if min <= value <= max:
             return value
 
-        print("Sorry, please re-enter within range")
+        print("Sorry, please re-enter within range ({}-{})".format(min, max))
 
 
 def getFloatRange(prompt, min, max):
@@ -36,3 +36,13 @@ def getPositiveInteger(prompt):
             return value
 
         print("Sorry, please enter positive integer only")
+
+
+def getPositiveFloat(prompt):
+    while True:
+        value = float(input(prompt))
+
+        if value > 0:
+            return value
+
+        print("Sorry, please enter positive float number only")

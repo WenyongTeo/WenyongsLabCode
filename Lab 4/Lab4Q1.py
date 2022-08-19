@@ -8,11 +8,10 @@ No of days with no rain 3 days
 Highest rainfall recorded 20.6mm
 Refer to the Appendix of this document for the content of rainfall.dat which you can
 use to create the input file.
-'''
+
 def avg(rainfall):
-    total =
-    sum=
-    print(f"Avgerage rainfall {sum}")
+
+    print(f"Avgerage rainfall {rainfall/31}")
     return sum
 
 def noRain(rainfall):
@@ -32,6 +31,29 @@ def main():
         noRain(i)
 
 
+
+main()
+'''
+def main():
+    infile = open('rainfall.dat', 'r')
+    totalRainfall = 0
+    days = 0
+    noRainDays = 0
+    highestRainfall= 0
+    for reading in infile:
+        days+=1
+        rainfall=float(reading)
+        totalRainfall = totalRainfall + rainfall
+        if rainfall == 0:
+            noRainDays+=1
+        else:
+            if rainfall > highestRainfall:
+                highestRainfall = rainfall
+    print(totalRainfall)
+    print(f"avg rainfall {totalRainfall / days:.2f}")
+    print(f'No rain days {noRainDays}')
+    print(f'Highest {highestRainfall}')
+    infile.close
 
 main()
 
