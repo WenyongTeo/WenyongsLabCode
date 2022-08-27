@@ -5,7 +5,7 @@
 #Run 1
 #Enter arithmetic expression: 23.6 + 33.2
 #Result: 56.8
-#SINGAPORE UNIVERSITY OF SOCIAL SCIENCES (SUSS) ICT133 Lab – Page 3 of 3
+#SINGAPORE UNIVERSITY OF SOCIAL SCIENCES (SUSS) ICT133 Lab 4 – Page 3 of 3
 #Run 2
 #Enter arithmetic expression: 85 % 15
 #Invalid arithmetic operation

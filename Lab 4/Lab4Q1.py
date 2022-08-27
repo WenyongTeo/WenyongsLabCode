@@ -28,7 +28,7 @@ def main():
     for summary in rainfall:
         print('Rainfall Summary')
         avg(sum)
-        noRain(i)
+        noRain()
 
 
 

@@ -1,0 +1,28 @@
+            elif waist >= 70 and waist <76 :
+                print('You are size 2 (Regular fit)')
+            elif waist >= 76 and waist <84 :
+                print('You are size 3 (Regular fit)')
+            elif waist >= 84 and waist <92 :
+                print('You are size 4 (Regular fit)')
+            elif waist >= 92 and waist <100 :
+                print('You are size 5 (Regular fit)')
+            elif waist >= 100 and waist <108 :
+                print('You are size 6 (Regular fit)')
+            elif waist >= 108 and waist <116 :
+                print('You are size 7 (Regular fit)')
+            else:
+                print('You are size 8 (Regular fit)')
+
+
+        elif chest >= 88 and chest < 96:
+            print('You are size 3 (Regular fit)')
+        elif chest >= 96 and chest < 104:
+            print('You are size 4 (Regular fit)')
+        elif chest >= 104 and chest < 112:
+            print('You are size 5 (Regular fit)')
+        elif chest >= 112 and chest < 120:
+            print('You are size 6 (Regular fit)')
+        elif chest >= 120 and chest < 128:
+            print('You are size 7 (Regular fit)')
+        else:
+            print('You are size 8 (Regular fit)')

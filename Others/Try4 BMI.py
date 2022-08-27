@@ -12,5 +12,14 @@ def main():
     else:
         print("Obsese")
 
-main()
+from random import randint
 
+
+def computerChoice():
+  aiChoice = ['Rock', 'Paper', 'Scissor']
+  threeChoice = len(aiChoice)
+  randomChoice = randint(1,threeChoice)
+  return randomChoice
+def main():
+  print(computerChoice())
+main()
