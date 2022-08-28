@@ -1,0 +1,367 @@
+from random import choice
+from myLib import getCharSet
+
+def playOneGame(roundNumber):  # was lab3Q6a()
+    flipOutcome = choice("HT")
+    #print(flipOutcome)
+    guess = getCharSet("Round {}: Head or Tail (H or T): ".format(roundNumber), "HTht")
+
+    if guess.upper() == flipOutcome:
+        print("Correct!")
+        return 1
+    else:
+        print("Wrong!")
+        return 0
+
+def lab3q6b():
+    wins = 0
+    rounds = int(input("How many rounds to play? : "))
+    for i in range(1,rounds+1):
+        wins = wins + playOneGame(i)
+
+    print("You guess {} correct out of {} rounds.".format(wins, rounds))
+
+def lab3q6c():
+    noOfTries = 0
+    while True:
+        noOfTries += 1
+        if playOneGame(noOfTries) == 1:
+            break
+
+    print("You got it in {} tosses.".format(noOfTries))
+
+
+def lab3q6d():
+    while True:
+        lab3q6c()
+        playAgain = getCharSet("Play again? (y/n): ", "YyNn")
+        if playAgain in "Nn":
+            break
+
+    print("Program end")
+
+lab3q6d()
+
+
+
+# this something we can re-use from lab3 q5
+from myLib import getIntegerRange
+
+def menuOption():
+    print("Menu")
+    print("1. Display From TO")
+    print("2. Find sum squares")
+    print("3. Option C")
+    print("0. Quit")
+    choice = getIntegerRange("Enter choice: ",0,3)
+    return choice
+
+def displayFromTo(x, y):
+    """
+    The function displays consecutive numbers from the smaller to the larger number.
+    """
+    if x > y:
+        x,y = y,x
+
+    for i in range(x, y+1):
+        print(i)
+
+def sumSquares(num):
+    """
+    The function returns the sum of the squares from 1 up to num
+    """
+    # if num = 4
+    # 1*1 + 2*2 + 3*3 + 4*4    or
+    # 1**2 + 2**2 + 3**2 + 4**2
+    sumOfSquares = 0
+    for i in range(1,num+1):
+        sumOfSquares = sumOfSquares + (i**2)
+        #print(sumOfSquares)
+
+    return sumOfSquares
+
+def actionC():
+    print("I am doing action C")
+
+def main():
+    while True:
+        option = menuOption()
+        if option == 0:
+            break
+        elif option == 1:
+            num1 = int(input("Enter first number: "))
+            num2 = int(input("Enter second number: "))
+            displayFromTo(num1, num2)
+        elif option == 2:
+            number = int(input("Enter the number to compute sum squares: "))
+            print("Sum of squares for {} = {}".format(number, sumSquares(number)))
+        else:
+            actionC()
+
+    print("End of Program")
+
+main()
+
+
+
+
+#####################################################
+#lab 3-10
+# example: 11 / 4
+# 11 - 4    7   # 1    x - y > 0
+# 7 - 4     3   # 2
+# 3             # remainder
+def divide(x,y):
+    """
+    Division of 2 numbers x by y can be done by repeatedly, subtracting y from x until y is less than x. The function then return the quotient and remainder
+    """
+    # is x - y > 0?      12-4 >= 0    8-4 >= 0   4-4 >= 0?
+    # yes... x = x - y     8          4         0
+    # no.... x is the remainder
+    quotient = 0
+    while x-y >= 0:
+        x = x - y
+        quotient += 1
+
+    remainder = x
+    return quotient, remainder
+
+def main():
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+
+    quotient, remainder = divide(num1,num2)
+    print("{} divide {} will give quotient {} & remainder {}".format(num1, num2, quotient, remainder))
+
+main()
+##########################################
+# lab3 q8
+
+def sumSquares(num):
+    """
+    The function returns the sum of the squares from 1 up to num
+    """
+    # if num = 4
+    # 1*1 + 2*2 + 3*3 + 4*4    or
+    # 1**2 + 2**2 + 3**2 + 4**2
+    sumOfSquares = 0
+    for i in range(1,num+1):
+        sumOfSquares = sumOfSquares + (i**2)
+        #print(sumOfSquares)
+
+    return sumOfSquares
+
+def main():
+    number = int(input("Enter the number to compute sum squares: "))
+    result = sumSquares(number)
+    print("Sum of squares for {} = {}".format(number, result))
+
+main()
+
+
+#########################
+#lab3 q7
+def displayFromTo(x, y):
+    """
+    The function displays consecutive numbers from the smaller to the larger number.
+    """
+    if x > y:
+        x,y = y,x
+
+    for i in range(x, y+1):
+        print(i)
+
+
+def main():
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+    displayFromTo(num1, num2)  # 3, 6
+
+main()
+
+#########################################
+
+
+
+
+def lab3q4():
+    total = 0
+    while True:
+        qty = int(input('Enter quantity: '))
+        if qty == -1:
+            break
+
+        unitPrice = float(input('Enter unit price: '))
+        subtotal = unitPrice * qty
+        print("Subtotal is ${:,.2f}".format(subtotal))
+        total = total + subtotal
+
+    print("Total price is ${:,.2f}".format(total))
+    gst = total * 0.07
+    print("GST is ${:,.2f}".format(gst))
+    print("Please pay ${:,.2f}".format(total+gst))
+
+lab3q4()
+
+
+
+
+
+"""
+3a. (for loop) Write a program that displays a multiplication table. Read an integer
+number and display the multiplication table as follows in this example run:
+
+  Enter number: 5
+  1 x 5 = 5
+  2 x 5 = 10
+  3 x 5 = 15
+  4 x 5 = 20
+  5 x 5 = 25
+
+If the input is 5, the table displays 5 rows, each row for a multiple of 5.
+"""
+def lab3q3a():
+    num = int(input("Enter number: "))
+    for i in range(1, num+1):
+        print(i, "x", num, "=", i*num)
+
+    num = int(input('Enter number here: '))
+    for i in range(num):  # 0 ... num-1
+        print(f'{i+1}x{num}={(i+1)*num}')
+
+    number = int(input('Enter a number: '))
+    for i in range(1,number+1):
+          print('{} x {} = {}'.format(i,number,i*number))
+
+
+"""
+3b. (while, sentinel, for loop) Modify program in 3a to allow for multiple input. The program ends when -1 is entered for the input. Example:
+
+  Enter number: 2
+  1 x 2 = 2
+  2 x 2 = 4
+  Enter number: 3
+  1 x 3 = 3
+  2 x 3 = 6
+  3 x 3 = 9
+  Enter number: -1
+"""
+def lab3q3b():
+    while True:
+        number = int(input('Enter a number: '))
+        if number == -1:
+            break
+
+        for i in range(1,number+1):
+            print('{} x {} = {}'.format(i,number,i*number))
+
+lab3q3b()
+
+##########################################
+
+#lab 3-9
+def getValidValue(msg, x, y):
+    while True:
+        value = float(input(msg))
+
+        if x <= value <= y:
+            return value, value+1  # for demo
+        else:
+            print("Invalid input. Try again.")
+
+def main():
+    mark = getValidValue("Enter mark: ", 0 , 100)
+    print(mark)
+
+###########################################
+
+def lab3q2c():
+
+    word = input("Enter String ")
+    while word.upper() != "EXIT":
+        # some code to repeat here
+        n = int(input('Input integer value: '))
+        # print the word * n
+        for i in range(n):
+            print(word) # will run for n times
+
+        word = input("Enter String ")
+
+lab3q2c()
+
+def lab3q2b():
+  word = input('Input string value: ')
+  # 01234
+  # hello
+  # h
+  # he
+  # hel
+
+  # using slicing
+  for i in range(len(word)):  # 0,1,2,3,4
+    #print("When first enter the <body>, i =", i)
+    print(word[0:i+1])  # string[start:end:increment] slicing
+
+  # using for loop to go thru char by char
+  text = ""
+  for char in word:
+      text = text + char
+      print(text)
+
+
+def lab3q2a():
+  word = input('Input string value: ')
+  n = int(input('Input integer value: '))
+  # print the word * n
+  for i in range(n):
+    print(word) # will run for n times
+
+##############################
+
+
+def lab3Q1a():
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+    for i in range(num1, num2+1):
+        print(i)
+
+
+def lab3Q1b():
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+
+    sum = 0
+    for i in range(num1, num2+1):
+        print(i)
+        sum = sum + i
+
+    print(sum)
+
+def lab3Q1bc():
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+    sum = 0
+
+    if num1 <= num2:  # when num1 is smaller, print ascending
+        step = 1
+    else:  # when num1 is bigger, print descending
+        step = -1
+
+    for i in range(num1, num2+step, step):
+        sum += i  # sum = sum + i
+        print(i)
+
+    print("Sum of the consecutive numbers:", sum)
+
+    """
+    if num1 <= num2:  # when num1 is smaller, print ascending
+        for i in range(num1, num2+1, 1):
+            sum += i  # sum = sum + i
+            print(i)
+    else:  # when num1 is bigger, print descending
+        for i in range(num1, num2-1, -1):
+            sum += i  # sum = sum + i
+            print(i)
+
+    """
+lab3Q1bc()
