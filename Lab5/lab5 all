@@ -1,0 +1,45 @@
+# lab5 Q2
+def getPlayerNames():
+    gameScoreList = []
+    p1Name = input("Enter 1st player name: ")
+    p2Name = input("Enter 2nd player name: ")
+    gameScoreList.append( [p1Name,p2Name] )
+    return gameScoreList     # [ [p1Name,p2Name] ]
+
+def inputGamesScores( scoreList ):
+    p1Name, p2Name = scoreList[0][0], scoreList[0][1]
+    gameNo = 1
+    while True:
+        inputScore = input("Game {} score {} vs {}: ".format(gameNo,p1Name,p2Name))
+        if inputScore == "":  # = <enter> ?
+            break
+
+        gameNo += 1
+        p1Score, p2Score = inputScore.split("-")
+        scoreList.append( [int(p1Score), int(p2Score)] )
+
+def displayGameScore( gameScore ):
+    # gameScore[0] = ['A','B']
+    print("Player {} vs {}".format(gameScore[0][0], gameScore[0][1]))
+    p1Score, p2Score = 0, 0
+    for i in range(1,len(gameScore)):
+        print("Game {}: {}-{}".format(i, gameScore[i][0], gameScore[i][1]))
+        if gameScore[i][0] > gameScore[i][1]:
+            p1Score += 1
+        else:
+            p2Score += 1
+
+    print("Overall {}-{}".format(p1Score, p2Score))
+    if p1Score > p2Score:
+        winner = gameScore[0][0]
+    else:
+        winner = gameScore[0][1]
+    print("Winner is player {}".format(winner))
+
+def lab5Q2():
+    gameScore = getPlayerNames()
+    #gameScore = [['A','B']]
+    inputGamesScores( gameScore )
+    #gameScore = [['A','B'],[21,1],[21,10]]
+    #gameScore = [['A','B'],[21,11],[19,21],[20,22]]
+    displayGameScore( gameScore )
