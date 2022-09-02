@@ -1,6 +1,6 @@
 import random
 def getRandomShape():
-    threeShape = random.randint(1, 4)
+    threeShape = random.randint(1, 3)
     if threeShape == 1:
         threeShape = 'Scissors'
     elif threeShape == 2:
@@ -18,17 +18,17 @@ def getShape():
             if userShape.upper() in 'SCISSOR':
                 print('Scissors')
             elif userShape.upper() in 'PAPER':
-                print('Papers')
+                print('Paper')
             elif userShape.upper() in 'STONE':
                 print('Stones')
             else:
                 print("Sorry, Please choose between Scissor, Paper, and Stone")
-            ()
+
         else:
             break
 
 
 def main():
     getShape()
-
+    print(getRandomShape())
 main()

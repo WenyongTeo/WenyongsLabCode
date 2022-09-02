@@ -17,4 +17,7 @@ waistSize = [0, 70, 76, 84, 92, 100, 108, 116]
 chart= [heightSize,chestSize,waistSize]
 print(chart[0][0])
 '''
+import random
 
+digits = random.randint(1, 3)
+print(digits)
