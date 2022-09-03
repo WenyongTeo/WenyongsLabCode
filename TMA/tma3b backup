@@ -1,11 +1,3 @@
-# tma3b
-# Start game choose hand size
-# If size < 3 re-enter
-# Ask for players name
-# then getHandOfShape
-# will Also do computer shapes
-# Compare them, if win +=1 points. Tie no points
-# If round tie reset game
 import random
 
 

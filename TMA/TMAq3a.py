@@ -14,13 +14,12 @@ def getHandOfShapes(size, auto):
     i=0
     while not auto:
         while i<size:
-            shape = input(f"Shape {i} What shape?: ")
+            shape = input(f"Shape {i+1} What shape?: ")
             list.append(shape)
             i+=1
 
         return print(list)
     while auto:
-
         while i<size:
             list.append(getRandomShape())
             i+=1

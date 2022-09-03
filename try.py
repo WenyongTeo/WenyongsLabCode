@@ -17,7 +17,25 @@ waistSize = [0, 70, 76, 84, 92, 100, 108, 116]
 chart= [heightSize,chestSize,waistSize]
 print(chart[0][0])
 '''
-import random
+'''from random import randint
+#aiChoice = ['Rock', 'Paper', 'Scissor']
+#threeChoice = len(aiChoice)
+def getRandomShape():
+    randomChoice = randint(0, 2)
+    if randomChoice == 0:
+        aiChoice = 'Rock'
+    elif randomChoice == 1:
+        aiChoice = 'Paper'
+    else:
+        aiChoice = 'Scissor'
+    return aiChoice
 
-digits = random.randint(1, 3)
-print(digits)
+def main():
+    print(getRandomShape())
+main()
+'''
+
+score = (11 * (8/7)) + (5 * (8/5))  + 20 + 9
+
+
+print(score)
