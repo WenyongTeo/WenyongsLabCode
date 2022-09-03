@@ -34,8 +34,52 @@ def main():
     print(getRandomShape())
 main()
 '''
+import math
+import random
 
-score = (11 * (8/7)) + (5 * (8/5))  + 20 + 9
+def playOffs(name):
+    aipoints = 0
+    mypoints = 0
+    game = 1
+    shapes = ['SCISSORS', 'STONE', 'PAPER']
+    while aipoints == mypoints:
+        while True:
+            my_shape = input(f'Play off {game} Enter your shape: ').upper()
+            if my_shape not in shapes:
+                print("Invalid Shape!")
+            else:
+                break
+        ai_shape = random.choice(shapes)
+        print(f'Playoff {game} Computer shape is : {ai_shape}')
+        if my_shape == ai_shape:
+            mypoints += 0
+            aipoints += 0
+        elif my_shape == 'SCISSORS':
+            if ai_shape == 'PAPER':
+                mypoints += 1
+            else:
+                aipoints += 1
+
+        elif my_shape == 'PAPER':
+            if ai_shape == 'STONE':
+                mypoints += 1
+            else:
+                aipoints += 1
+        elif my_shape == 'STONE':
+            if ai_shape == 'SCISSORS':
+                mypoints += 1
+            else:
+                aipoints += 1
+        print(f'Rounds {game} {name} {my_shape} : Computer {ai_shape}')
+        game+=1
+        if mypoints>aipoints:
+            return print(f'\n{name} wins the playoff!!')
+        elif aipoints>mypoints:
+            return print(f'\nComputer wins the playoff!!')
 
 
-print(score)
+def main():
+    name= 'wy'
+    playOffs(name)
+
+main()
