@@ -26,3 +26,4 @@ list = ['SCISSORS', 'PAPER', 'STONE'] * 2
 
 if ONElist in list >  :
     print('TOO MANY')
+#

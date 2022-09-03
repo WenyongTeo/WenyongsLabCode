@@ -8,7 +8,7 @@
 # If round tie reset game
 import random
 
-
+#
 def getRandomShape():
     theList = ['SCISSORS', 'PAPER', 'STONE']
     randomShape = random.choice(theList)
