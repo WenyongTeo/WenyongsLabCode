@@ -4,14 +4,6 @@
 # choose 1 until winner is decided
 import math
 import random
-#player condition
-'''while len(playerlist)<size:
-    shapes= input("enter shapes (SCISSORS', 'PAPER', 'STONE): ")
-    if  playerlist.count(shapes) == maxShape:
-        print(f'Cannot have more than {maxShape} {shapes}')
-    else:
-        playerlist.append(shapes)
-        print(playerlist)'''
 def playOffs(name):
     aipoints = 0
     mypoints = 0
