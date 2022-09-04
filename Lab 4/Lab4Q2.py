@@ -44,9 +44,9 @@ def showBMIOutcome(weight, height):
 
 def lab4q2a():
     infile = open('customer.dat', 'r')
-    print("Name   weight    height   BMI")
+    print(" Name   weight    height   BMI")
     for line in infile:
-        name, weight, height = line.split(',')
+        name, weight, height = line.split(',') #the 3 are still string!!
         bmi= bmiCalculator(float(weight),float(height))
         print(f'{name} {float(weight)} {float(height)}')
     infile.close()

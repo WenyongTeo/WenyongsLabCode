@@ -43,8 +43,8 @@ def main():
     for reading in infile:
         days+=1
         rainfall=float(reading)
-        totalRainfall = totalRainfall + rainfall
-        if rainfall == 0:
+        totalRainfall = totalRainfall + rainfall #accumulating
+        if rainfall == 0: #check no day?
             noRainDays+=1
         else:
             if rainfall > highestRainfall:
