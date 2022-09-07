@@ -1,0 +1,100 @@
+import math
+def getHeight(height):
+    if height < 31:
+        heightSize = 1
+        return heightSize
+    elif height == 31:
+        heightSize = 2
+        return heightSize
+    elif height == 32:
+        heightSize = 3
+        return heightSize
+    elif height == 33:
+        heightSize = 4
+        return heightSize
+    elif height == 34:
+        heightSize = 5
+        return heightSize
+    elif height == 35:
+        heightSize = 6
+        return heightSize
+    elif height == 36:
+        heightSize = 7
+        return heightSize
+    else:
+        heightSize = 8
+        return heightSize
+
+def getChestSize(chest):
+    if chest < 10:
+        chestSize = 1
+        return chestSize
+    elif chest == 10:
+        chestSize = 2
+        return chestSize
+    elif chest == 1:
+        chestSize = 3
+        return chestSize
+    elif chest == 12:
+        chestSize = 4
+        return chestSize
+    elif chest == 13:
+        chestSize = 5
+        return chestSize
+    elif chest == 14:
+        chestSize = 6
+        return chestSize
+    elif chest == 15:
+        chestSize = 7
+        return chestSize
+    else:
+        chestSize = 8
+        return chestSize
+
+def getWaistSize(waist):
+    if waist < 70:
+        waistSize = 1
+        return waistSize
+    elif waist < 76:
+        waistSize = 2
+        return waistSize
+    elif waist < 84:
+        waistSize = 3
+        return waistSize
+    elif waist < 92:
+        waistSize = 4
+        return waistSize
+    elif waist < 100:
+        waistSize = 5
+        return waistSize
+    elif waist < 108:
+        waistSize = 6
+        return waistSize
+    elif waist < 116:
+        waistSize = 7
+        return waistSize
+    else:
+        waistSize = 8
+        return waistSize
+
+def main():
+    h = float(input('Enter height measurement (cm): '))
+    c = float(input('Enter Chest Measurement (cm): '))
+    waist = float(input('Enter waist measurement (cm): '))
+    height = h//5
+    chest = c//8
+    heightSize = getHeight(height)
+    chestSize = getChestSize(chest)
+    waistSize = getWaistSize(waist)
+
+    if heightSize == chestSize == waistSize:
+        shirt = "Best fit"
+    elif heightSize == chestSize > waistSize or chestSize == waistSize > heightSize or heightSize == waistSize > chestSize:
+        shirt = "Regular fit"
+    elif (heightSize > chestSize and waistSize) or (chestSize > heightSize and waistSize) or (waistSize > heightSize and chestSize):
+        shirt = "Relaxed fit"
+    shirtList= [heightSize,chestSize,waistSize]
+    fit= max(shirtList)
+    print(f'Your size is {fit} {shirt}')
+
+main()

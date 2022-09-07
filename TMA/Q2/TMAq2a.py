@@ -15,7 +15,7 @@ def getShape():
         play = input('Play? (Y/N): ')
         if play in 'Yy':
             userShape = input('Please select a Shape: ')
-            if userShape.upper() in 'SCISSOR':
+            if userShape.upper() in 'SCISSORS':
                 print('Scissors')
             elif userShape.upper() in 'PAPER':
                 print('Paper')

@@ -16,7 +16,7 @@ def test():
         #for each line in oneLine. write to outfile.dat
         #outfile.write('write-' + oneLine) dont use it
         #use this for outfile
-        print('print-' + oneLine, file=outfile, end'')
+        print('print-' + oneLine, file=outfile, end='')
 
 
     '''#read many lines

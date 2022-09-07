@@ -1,4 +1,4 @@
-def readSeatingPlan(filename):
+def readSeatingPlan(filename): #get the file name, put it into a dictionary
     movieFile = {}
     with open(filename) as f:
         for row in f:
@@ -10,7 +10,7 @@ def readSeatingPlan(filename):
             movieFile[(key)] = seatingList
     return movieFile
 
-def showSeatingPlan(seatingPlan):
+def showSeatingPlan(seatingPlan): #get the dictionary, put A as key seats as value. List in dict method
    for k,v in seatingPlan.items():
        for seats in v:
            x = '   '.join(v)
@@ -20,53 +20,53 @@ def showSeatingPlan(seatingPlan):
        print(f'{i:02d}', end=' ')
    return seatingPlan
 
-def menuOption():
+def menuOption(): #formatting the menu
     count = 1
     print("Main Menu - FR Productions")
     print('==========================')
-    with open('FR_Productions.txt', 'r') as file:
+    with open('FR_Productions.txt', 'r') as file: #open production file
         for data in file:
-            (movieName, movieDate) = data.rstrip('\n,.txt').split('-')
-            movieDay = movieDate[6:8]
-            movieMonth = movieDate[4:6]
-            movieYear = movieDate[0:4]
-            movieHour = movieDate[8:10]
-            movieMinute = movieDate[10:12]
-            print(f'{count}. {movieName} @ {movieYear}-{movieMonth}-{movieDay} {movieHour}:{movieMinute}')
+            (movieName, movieDate) = data.rstrip('\n,.txt').split('-') #strp the \n and .txt after the '-'
+            movieDay = movieDate[6:8] #get DD
+            movieMonth = movieDate[4:6] #get MM
+            movieYear = movieDate[0:4] #get YY
+            movieHour = movieDate[8:10] #get HH
+            movieMinute = movieDate[10:12] #get MM
+            print(f'{count}. {movieName} @ {movieYear}-{movieMonth}-{movieDay} {movieHour}:{movieMinute}') #format it
             count += 1
     print("X. Exit")
     option = input("Enter Selection: ")
-    return option
+    return option #return my input
 
 def subMenuBc0809(seatingPlan):
     while True:
         showSeatingPlan(seatingPlan)
         print('\nSub-Menu\n=====\n1. Book seats\n2. Cancel Bookings\nX. Back to Main Menu')
-        subOption = input('Enter option_: ')
+        subOption = input('Enter option_: ') #choose 1234 or Xx
         if subOption == '1':
             selectedSeats = []
-            bookInput = input('Enter seats to book: ').upper()
-            selectedSeats = bookInput.split(',')
-            abortSelection = False
+            bookInput = input('Enter seats to book: ').upper()  #input A1,B1
+            selectedSeats = bookInput.split(',')                #input becomes [A1,B1]
+            abortSelection = False                              #checker
             for booking in selectedSeats:
-                bookRow = booking[0]
-                bookColumn = int(booking[1:])-1
+                bookRow = booking[0]              #key A,B,C,D...
+                bookColumn = int(booking[1:])-1   #Value, 1,2,3...17
                 availableSeats = (seatingPlan[booking[0]][bookColumn])
-                if availableSeats == "X":
+                if availableSeats == "X":         #check if its X
                     print(f'Exception! {booking} has been booked!')
-                    abortSelection = True
+                    abortSelection = True         #go next
                     print('Booking aborted')
-                elif availableSeats == '#':
+                elif availableSeats == '#':       #check if its #
                     print(f'{booking} is blocked!')
-                    abortSelection = True
+                    abortSelection = True         #go next
 
             for booking in selectedSeats:
-                if abortSelection is False:
-                    bookRow = booking[0]
-                    bookColumn = int(booking[1:]) - 1
-                    availableSeats = (seatingPlan[booking[0]][bookColumn])
-                    if availableSeats == 'O':
-                        seatingPlan[bookRow][bookColumn] = 'X'
+                if abortSelection is False:       #after both above are checked and are True, will come here
+                    bookRow = booking[0]              #ABCD
+                    bookColumn = int(booking[1:]) - 1 #1...17
+                    availableSeats = (seatingPlan[booking[0]][bookColumn]) #A1...
+                    if availableSeats == 'O': #if its O
+                        seatingPlan[bookRow][bookColumn] = 'X' #change it to X
                         print(f'{booking} has been booked Successfuly!\n')
                         with open('Bad Citizen-202209081930.txt', 'w') as f:
                             for rowCode in sorted(seatingPlan.keys()):
@@ -74,17 +74,17 @@ def subMenuBc0809(seatingPlan):
 
         elif subOption == '2':
             selectedSeats = []
-            bookInput = input('Enter seats to book: ').upper()
+            bookInput = input('Enter seats to cancel: ').upper()
             selectedSeats = bookInput.split(',')
             abortSelection = False
             for booking in selectedSeats:
                 bookRow = booking[0]
                 bookColumn = int(booking[1:]) - 1
                 availableSeats = (seatingPlan[booking[0]][bookColumn])
-                if availableSeats == "O":
+                if availableSeats == "O": #will abort if not booked
                     print(f'Exception! {booking} is not booked!')
                     abortSelection = True
-                    print('Booking aborted')
+                    print('Canceling aborted')
                 elif availableSeats == '#':
                     print(f'{booking} is blocked!')
                     abortSelection = True
@@ -94,8 +94,8 @@ def subMenuBc0809(seatingPlan):
                     bookRow = booking[0]
                     bookColumn = int(booking[1:]) - 1
                     availableSeats = (seatingPlan[booking[0]][bookColumn])
-                    if availableSeats == 'X':
-                        seatingPlan[bookRow][bookColumn] = 'O'
+                    if availableSeats == 'X': #if X
+                        seatingPlan[bookRow][bookColumn] = 'O' #change it to O
                         print(f'{booking} has been cancelled Successfuly!\n')
                         with open('Bad Citizen-202209081930.txt', 'w') as f:
                             for rowCode in sorted(seatingPlan.keys()):
@@ -139,7 +139,7 @@ def subMenuBc0909(seatingPlan):
 
         elif subOption == '2':
             selectedSeats = []
-            bookInput = input('Enter seats to book: ').upper()
+            bookInput = input('Enter seats to Cancel: ').upper()
             selectedSeats = bookInput.split(',')
             abortSelection = False
             for booking in selectedSeats:
@@ -149,7 +149,7 @@ def subMenuBc0909(seatingPlan):
                 if availableSeats == "O":
                     print(f'Exception! {booking} is not booked!')
                     abortSelection = True
-                    print('Booking aborted')
+                    print('Cancelling aborted')
                 elif availableSeats == '#':
                     print(f'{booking} is blocked!')
                     abortSelection = True
@@ -204,7 +204,7 @@ def subMenuMge0809(seatingPlan):
 
         elif subOption == '2':
             selectedSeats = []
-            bookInput = input('Enter seats to book: ').upper()
+            bookInput = input('Enter seats to Cancel: ').upper()
             selectedSeats = bookInput.split(',')
             abortSelection = False
             for booking in selectedSeats:
@@ -214,7 +214,7 @@ def subMenuMge0809(seatingPlan):
                 if availableSeats == "O":
                     print(f'Exception! {booking} is not booked!')
                     abortSelection = True
-                    print('Booking aborted')
+                    print('Cancelling aborted')
                 elif availableSeats == '#':
                     print(f'{booking} is blocked!')
                     abortSelection = True
@@ -269,7 +269,7 @@ def subMenuMge0909(seatingPlan):
 
         elif subOption == '2':
             selectedSeats = []
-            bookInput = input('Enter seats to book: ').upper()
+            bookInput = input('Enter seats to Cancel: ').upper()
             selectedSeats = bookInput.split(',')
             abortSelection = False
             for booking in selectedSeats:
@@ -279,7 +279,7 @@ def subMenuMge0909(seatingPlan):
                 if availableSeats == "O":
                     print(f'Exception! {booking} is not booked!')
                     abortSelection = True
-                    print('Booking aborted')
+                    print('Cancelling aborted')
                 elif availableSeats == '#':
                     print(f'{booking} is blocked!')
                     abortSelection = True
@@ -298,7 +298,7 @@ def subMenuMge0909(seatingPlan):
         elif subOption in 'xX':
             return False
 
-def tma4b():
+def tma4b(): #traffic controller
     while True:
         option = menuOption()
         if option == '1':

@@ -31,7 +31,6 @@ def main():
     rounds = 1
     while True:
         while rounds < 4:
-
             my_choice = getShape(rounds, name)
             pc_choice = getRandomShape()
             print(f'Round {rounds} Computer shape is : {pc_choice}')

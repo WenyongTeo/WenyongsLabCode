@@ -23,7 +23,6 @@ def main():
     rounds = 1
     match = 1
 
-
     while mypoints!=3 and aipoints !=3:
 
         my_choice = getShape(rounds, name)

@@ -126,7 +126,7 @@ def tma3c():
             print(f'<<{name} {mypoints} : Computer {aipoints}>>')  # << Alan 1 : Computer 0 >>
 
         if aipoints == mypoints:
-            print('\nTie! time to rematch!\n')
+            print('\nTie! time to for playoffs!!\n')
             playOffs(name)
         elif aipoints > mypoints:
             print('Computer win!')

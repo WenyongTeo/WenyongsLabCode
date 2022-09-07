@@ -1,0 +1,135 @@
+<html>
+<head>
+<title>Treasure Chest Game Day 3.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #6a8759;}
+.s2 { color: #cc7832;}
+.s3 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Treasure Chest Game Day 3.py</font>
+</center></td></tr></table>
+<pre><span class="s0">print(</span><span class="s1">''' 
+******************************************************************************* 
+          |                   |                  |                     | 
+ _________|________________.=&quot;&quot;_;=.______________|_____________________|_______ 
+|                   |  ,-&quot;_,=&quot;&quot;     `&quot;=.|                  | 
+|___________________|__&quot;=._o`&quot;-._        `&quot;=.______________|___________________ 
+          |                `&quot;=._o`&quot;=._      _`&quot;=._                     | 
+ _________|_____________________:=._o &quot;=._.&quot;_.-=&quot;'&quot;=.__________________|_______ 
+|                   |    __.--&quot; , ; `&quot;=._o.&quot; ,-&quot;&quot;&quot;-._ &quot;.   | 
+|___________________|_._&quot;  ,. .` ` `` ,  `&quot;-._&quot;-._   &quot;. '__|___________________ 
+          |           |o`&quot;=._` , &quot;` `; .&quot;. ,  &quot;-._&quot;-._; ;              | 
+ _________|___________| ;`-.o`&quot;=._; .&quot; ` '`.&quot;\` . &quot;-._ /_______________|_______ 
+|                   | |o;    `&quot;-.o`&quot;=._``  '` &quot; ,__.--o;   | 
+|___________________|_| ;     (#) `-.o `&quot;=.`_.--&quot;_o.-; ;___|___________________ 
+____/______/______/___|o;._    &quot;      `&quot;.o|o_.--&quot;    ;o;____/______/______/____ 
+/______/______/______/_&quot;=._o--._        ; | ;        ; ;/______/______/______/_ 
+____/______/______/______/__&quot;=._o--._   ;o|o;     _._;o;____/______/______/____ 
+/______/______/______/______/____&quot;=._o._; | ;_.--&quot;o.--&quot;_/______/______/______/_ 
+____/______/______/______/______/_____&quot;=.o|o_.--&quot;&quot;___/______/______/______/____ 
+/______/______/______/______/______/______/______/______/______/______/_____ / 
+******************************************************************************* 
+'''</span><span class="s0">)</span>
+<span class="s0">print(</span><span class="s1">&quot;Welcome to Treasure Island.</span><span class="s2">\n</span><span class="s1">&quot;</span><span class="s0">)</span>
+<span class="s0">print(</span><span class="s1">&quot;Your mission is to find the treasure.&quot;</span><span class="s0">)</span>
+
+<span class="s3">#https://www.draw.io/?lightbox=1&amp;highlight=0000ff&amp;edit=_blank&amp;layers=1&amp;nav=1&amp;title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload</span>
+
+<span class="s3">#Write your code below this line 👇</span>
+<span class="s2">while True</span><span class="s0">:</span>
+    <span class="s0">print(</span><span class="s1">'Wanna play?'</span><span class="s0">)</span>
+    <span class="s0">play = (input(</span><span class="s1">&quot;Enter Choice (Y or N): &quot;</span><span class="s0">))</span>
+    <span class="s0">print(</span><span class="s1">f'Option </span><span class="s2">{</span><span class="s0">play</span><span class="s2">} </span><span class="s1">selected</span><span class="s2">\n</span><span class="s1">'</span><span class="s0">)</span>
+    <span class="s2">if </span><span class="s0">play.lower() </span><span class="s2">in </span><span class="s1">'y'</span><span class="s0">:</span>
+        <span class="s0">wheretoGO= input(</span><span class="s1">&quot;You wanna go left or right? choose one (Left or Right): &quot;</span><span class="s0">).lower()</span>
+        <span class="s2">if </span><span class="s0">wheretoGO </span><span class="s2">in </span><span class="s1">'left'</span><span class="s0">:</span>
+            <span class="s0">print(</span><span class="s1">&quot;</span><span class="s2">\n</span><span class="s1">You have reached a river... but you have no boat... uwu. So you wanna swim across or wait?</span><span class="s2">\n</span><span class="s1">&quot;</span><span class="s0">)</span>
+            <span class="s0">swimOrWait = input(</span><span class="s1">'(Swim or Wait): '</span><span class="s0">).lower()</span>
+            <span class="s2">if </span><span class="s0">swimOrWait </span><span class="s2">in </span><span class="s1">'wait'</span><span class="s0">:</span>
+                <span class="s0">print(</span><span class="s1">'</span><span class="s2">\n</span><span class="s1">Your boat has arrived WOOHOOO!!!! WE SAIL WITH ODIN TONIGHT!!!!</span><span class="s2">\n</span><span class="s1">'</span><span class="s0">)</span>
+                <span class="s0">print(</span><span class="s1">'You have reach a room with &quot;Treasure&quot; sign, There is Three doors. Red, Yellow and Blue. Choose wisely Viking.. There is only 1 correct door.</span><span class="s2">\n</span><span class="s1">'</span><span class="s0">)</span>
+                <span class="s0">door = input(</span><span class="s1">'Red Yellow or Blue:'</span><span class="s0">).lower()</span>
+                <span class="s2">if </span><span class="s0">door </span><span class="s2">in </span><span class="s1">'red'</span><span class="s0">:</span>
+                    <span class="s0">print(</span><span class="s1">'</span><span class="s2">\n</span><span class="s1">Your bitch ass got burnt... Game Over</span><span class="s2">\n</span><span class="s1">'</span><span class="s0">)</span>
+                <span class="s2">elif </span><span class="s0">door </span><span class="s2">in </span><span class="s1">'blue'</span><span class="s0">:</span>
+                    <span class="s0">print(</span><span class="s1">'</span><span class="s2">\n</span><span class="s1">You got raped by troll... Such sadness. Game over</span><span class="s2">\n</span><span class="s1">'</span><span class="s0">)</span>
+                <span class="s2">elif </span><span class="s0">door </span><span class="s2">in </span><span class="s1">'yellow'</span><span class="s0">:</span>
+                    <span class="s0">print(</span><span class="s1">&quot;</span><span class="s2">\n</span><span class="s1">You won!!!! Here's your reward, The Krato's Axe</span><span class="s2">\n</span><span class="s1">&quot;</span><span class="s0">)</span>
+                    <span class="s0">print(</span><span class="s1">''' 
+                                               .. 
+                                   ;: 
+                                  .::. 
+                                 . ::`.                      `;. 
+                                :  ::  :                      ; :. 
+                               :   ::   :                    .;  :. 
+                              :    ::    :                   ::   :. 
+                             :     ::     :                .::    :: 
+                             :     ::     :               .::      :: 
+                             `.    ::    .               .::       :: 
+                              `.   ::   .               .::         :: 
+                                `. :: .               .::           :: 
+                                 :    :            .:::             :; 
+                          _--.   :....:       ...::::               ::: 
+                      __-`    `-.:....:.---:::::::                  ::; 
+            ___----           ..............                        ::; 
+        --==___===============..............                        ::; 
+               ----___          .........:::::..                    ::; 
+                      ``-_    .  :</span><span class="s2">\\</span><span class="s1">//: ```:::::::..                :; 
+                          `--    ://</span><span class="s2">\\</span><span class="s1">:        ``:::::.             :; 
+                                 :</span><span class="s2">\\</span><span class="s1">//:            ``:::.           :; 
+                                 ://</span><span class="s2">\\</span><span class="s1">:               `::.         :; 
+                                 :</span><span class="s2">\\</span><span class="s1">//:                :::.        :; 
+                                 ://</span><span class="s2">\\</span><span class="s1">:                :::;       :; 
+                                 :</span><span class="s2">\\</span><span class="s1">//:                ::::      :; 
+                                 ://</span><span class="s2">\\</span><span class="s1">:                :::      :; 
+                                 :</span><span class="s2">\\</span><span class="s1">//:                :::      : 
+                                 ://</span><span class="s2">\\</span><span class="s1">:               :::      : 
+                                 :</span><span class="s2">\\</span><span class="s1">//:               :::     : 
+                                 ://</span><span class="s2">\\</span><span class="s1">:               ;;     : 
+                                 :</span><span class="s2">\\</span><span class="s1">//:               ;     : 
+                                 :THOR:              ;     : 
+                                 [____]              ;    : 
+                                 [____]             ;    : 
+                                 [____]            .    : 
+                                 [____]           .    : 
+                                 [____]          .   .:` 
+                                 [____]         .    : 
+                                 :</span><span class="s2">\\</span><span class="s1">//:         :    : 
+                                 ://</span><span class="s2">\\</span><span class="s1">:         `.   `. 
+                                 :</span><span class="s2">\\</span><span class="s1">//:          `.   `. 
+                                 ://</span><span class="s2">\\</span><span class="s1">:            `.   ; 
+                                 [____]              `.. 
+                                 [____] 
+                                 [____] 
+                                 [____]  
+                                 [____] 
+                                 [____] 
+                                 :....: 
+                               .-  :: `-. 
+                             .     ::  ..`. 
+                            /      ::  `   </span><span class="s2">\ 
+                           </span><span class="s1">:       ::       ; 
+                           :::::::::::::::::: 
+                           :       ::       ; 
+                            \      ::      / 
+                             `.    ::    . 
+                               `-..::..- 
+                    '''</span><span class="s0">)</span>
+                <span class="s2">else</span><span class="s0">:</span>
+                    <span class="s0">print(</span><span class="s1">&quot;</span><span class="s2">\n</span><span class="s1">Game over</span><span class="s2">\n</span><span class="s1">&quot;</span><span class="s0">)</span>
+            <span class="s2">else</span><span class="s0">:</span>
+                <span class="s0">print(</span><span class="s1">'</span><span class="s2">\n</span><span class="s1">Your dumb ass got attacked by a serpent haha bitch</span><span class="s2">\n</span><span class="s1">'</span><span class="s0">)</span>
+        <span class="s2">else</span><span class="s0">:</span>
+            <span class="s0">print(</span><span class="s1">&quot;</span><span class="s2">\n</span><span class="s1">Fall into a hole. Game Over</span><span class="s2">\n</span><span class="s1">&quot;</span><span class="s0">)</span>
+    <span class="s2">else</span><span class="s0">:</span>
+        <span class="s2">break</span>
+        <span class="s0">print(</span><span class="s1">'Not much of an Adventurer eh?'</span><span class="s0">)</span></pre>
+</body>
+</html>
