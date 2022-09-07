@@ -1,0 +1,29 @@
+#do a menu,
+''''
+Main Menu - FR Productions
+==========================
+1. Bad Citizen @ 2022-09-08 19:30
+2. Bad Citizen @ 2022-09-09 19:30
+3. Monkey Goes East @ 2022-09-08 14:30
+4. Monkey Goes East @ 2022-09-09 14:30
+X. Exit
+Enter selection: _
+'''
+#sorted in alpha order .sort()
+#if select 1,
+'''
+Production: Bad Citizen
+Performance datetime: 2022-09-08 19:30
+Seating plan:
+A O O O O O # O X X X X # X O O O O
+B O O O O X # X X X O O # X O O O O
+C O O O O X # O X X O O # O O O O O
+D O O O O X # O O X X X # X O O O O
+01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17
+Sub-Menu
+========
+1. Book Seats
+2. Cancel Bookings
+X. Back to Main Menu
+Enter option: _
+'''

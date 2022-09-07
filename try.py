@@ -1,3 +1,40 @@
+
+
+
+'''from random import randint,choice
+def getPlayers():
+    players = []
+    for i in range(3)
+        name = input('Name')
+        players.append[name,0]
+    return [['A',3]],['B',4],['C',4]
+def playGuessingGame(players,diceValue):
+    seq= choice[[0,1],[1,2,0],[2,1,0]]
+    print('seq is', seq)
+    while True:
+        for i in seq:
+            guess
+
+def printGameSummary(players):
+    maxScore = max[p[1] for p in player])
+        for p in player:
+            if p[1] in players:
+                if p[1] == maxScore:
+                    print(p[0], end='')
+def main():
+    players = getPlayers()
+    while True:
+        diceValue=rollDice
+        print(diceValue)
+        playGuessingGame(players,diceValue)
+        playAgain = input('Enter y or n')
+        if playAgain[0].lower == 'n'
+            break
+    print
+
+
+'''
+
 '''size1 = (0, 0, 0)
 size2 = (155, 80, 70)
 size3 = (160, 88, 76)
@@ -37,7 +74,7 @@ main()
 import math
 import random
 
-def playOffs(name):
+'''def playOffs(name):
     aipoints = 0
     mypoints = 0
     game = 1
@@ -82,4 +119,11 @@ def main():
     name= 'wy'
     playOffs(name)
 
-main()
+main()'''
+a1 = True
+b2 = False
+
+if a1 and b2:
+    print(a1 and b2)
+elif a1:
+    print(a1)

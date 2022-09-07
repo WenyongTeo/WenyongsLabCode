@@ -26,3 +26,40 @@
             print('You are size 7 (Regular fit)')
         else:
             print('You are size 8 (Regular fit)')
+
+## split user input by ,
+## assuming user wont input wrongly
+listofinput = userinput.split(",")
+
+## create empty placeholder
+selectedRow, selectedCol = '', ''
+
+## loop the seperated list of userinput
+For seat in listofinput :
+ ## for each character in seat
+ for text in seat:
+  ## if the seat is alphabert
+  If text.isalpha():
+      ## it will be the row that I want
+      selectedRow = text
+  ## else if the seat is a integer
+  Elif text.isdigit():
+      ##it will be the column that I want
+      ## however it might not be single digit, so need to +=
+      selectedCol += text
+
+  ## get the row's seating plan
+  rowPlan = seatingPlan[selectedRow]
+
+  ## can be shortern by merging with the top
+   Availablility = rowPlan[int(selectedCol)-1]
+
+  ## availablity = seatingPlan[selectedRow][int(selectedCol)-1]
+
+  ## now you got the availability of the seat, check what is the status of the availability
+   If availablity == X
+      Blah blah
+   Elif availablility== #
+      Blah blah
+   Elif availablility == O
+      Blah blah

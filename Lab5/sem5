@@ -1,0 +1,515 @@
+from random import randint
+
+def rollDice():
+    return randint(1, 6)
+
+def getPlayers():
+    """
+    players = { }
+    while True:
+        name = input('Enter name: ').capitalize()
+        if name == '':
+            break
+
+        players[name] = {'won': 0, 'guess': 0}
+
+    return players
+
+    """
+    return { 'Alan': { 'won': 0, 'guess': 0 },
+             'Ben': { 'won': 0, 'guess': 0 },
+            'Cindy': { 'won': 0, 'guess': 0 } }
+
+def playGuessingGame(players, diceValue):
+    for tries in range(1, 4):
+        for k, v in players.items():  # k - "Ben"   v - { 'won': 0, 'guess': 4 }
+            v['guess'] = int(input("Try {}. {}, enter guess: ".format(tries, k)))
+
+        print(players)
+        if checkGuess(players, diceValue):
+            break
+    else:
+        print(("Sorry, value is {}".format(diceValue)))
+
+def printScoreSummary(players):
+    for k, v in players.items():
+        print("{} won {} game{}".format(k, v['won'],
+                                        '' if v['won'] < 2 else 's'))
+    """
+    if v['won'] < 2:
+      s = ''
+    else:
+      s = 's'
+    """
+
+def checkGuess(players, diceValue):
+    correct = False
+    for k, v in players.items():
+        if diceValue == v['guess']:
+            print("{}, you got it!".format(k))
+            v['won'] += 1
+            correct = True
+        else:
+            print("{}, incorrect".format(k))
+
+    return correct
+
+def main():
+    players = getPlayers()
+    playAgain = 'y'
+    while playAgain[0] in "yY":
+        diceValue = rollDice()
+        playGuessingGame(players, diceValue)
+        printScoreSummary(players)
+        playAgain = input("Continue? y/n: ")
+
+    print("End game")
+
+main()
+
+
+
+
+
+
+# lab4 Q6 now convert to use Dictionary
+
+def inputSwimmers(noOfSwimmers):
+    swimDict = { }   # { 'Kev': 0, 'Jeff: 0', ....}
+    for i in range(1, noOfSwimmers+1):
+        name = input("Enter lane {} swimmer: ".format(i)).title()
+        swimDict[name] = 0
+
+    return swimDict
+
+def inputTiming(swimDict):
+    for name in swimDict:  # default is the keys = swimmer names
+        timing = float(input("Enter timing for {}: ".format(name)))
+        swimDict[name] = timing
+
+def byTime(elem):
+    return elem[1]
+
+def printResults(swimDict):
+    # part(c)
+    for k,v in swimDict.items():
+        print("{:<15s} {:.2f}s".format(k,v))
+
+    # part(d)
+    swimmerTimings = list(swimDict.items())
+    print(swimmerTimings)
+    # [('Jim', 32.1), ('Kev', 32.0), ('Alex', 31.8), ('John', 32.3), ('Jack', 31.9)]
+    swimmerTimings.sort(key=byTime)
+    print(swimmerTimings)
+    print("====")
+    for element in swimmerTimings:
+         print("{:<15s} {:.2f}s".format(element[0],element[1]))
+
+def lab4Q6():
+    #swimDict = inputSwimmers(3)  # swimDict is a DICTIONARY
+    #inputTiming(swimDict)
+    swimDict = {'Jim': 32.1, 'Kev': 32.0, 'Alex': 31.8, 'John': 32.3, 'Jack':31.9}
+    printResults(swimDict)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def getScores():
+    """
+    scoreDict = { }
+    while True:
+        name = input(("Enter name: ")).capitalize()
+
+        if name == "":
+            break
+
+        if name in scoreDict.keys(): # is this key already exists??
+            print("name already exist, please re-enter")
+            continue
+
+        score = int(input("Enter score: "))
+        # create a key with score as value into the dictionary
+        scoreDict[name] = score     # { name: score}
+        #print(scoreDict)
+
+    return scoreDict
+    """
+    return {'Evelyn': 22, 'Helen': 33, 'George': 33, 'Alice': 22}
+
+def byScore(elem):
+    return elem[1]
+
+def searchScore(scores, name):
+    return scores.get(name, 'Not recorded')
+
+def slide16Example():
+    scores = getScores()
+    print(scores)
+    # convert to a list for sorting
+    scoreList = list(scores.items())
+    print(scoreList)
+    scoreList.sort()
+    print(scoreList)
+
+    scoreList.sort(key=byScore, reverse=True)
+    for s in scoreList:
+        print("{} scored {}".format(s[0], s[1]))
+
+    while True:
+        name = input("Enter name of student or <ENTER> to end: ").capitalize()
+        if name == '':
+            break
+        else:
+            print(searchScore(scores, name))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def dictionaryBasics():
+    currs = { "USD": 0.73, "RMB":5.6, "HKD": 5.73 }
+    print(currs)
+
+    # indexing....access the dict using key, to find values
+    print(currs["USD"])
+    print(currs["RMB"])
+    print(currs["HKD"])
+
+    for k in currs:  # default is currs.keys()
+        print("for k in currs: ", k)  # print all the keys
+
+    for k in currs.keys():  # default is currs.keys()
+        print("using currs[k] - {} is now {}".format(k, currs[k]))
+
+    for v in currs.values():
+        print("using currs.values() - {}".format(v))
+
+    for k,v in currs.items():  # items() give you k,v
+        print("using k,v in currs.items() - {} is now {}".format(k, v))
+
+    for e in currs.items():  #
+        print("using e in currs.items() - {} ".format(e))
+
+    # always search for the key before accessing the dictionary
+    ccy = input("Enter ccy to search: ").upper()
+    if ccy in currs:  # try to match the keys
+        print("FX rate for {} is {}".format(ccy, currs[ccy]))
+    else:
+        print("{} is not found".format(ccy))
+
+    fxRate = currs.get(ccy, None)   # return None if key not found
+    if fxRate is None:
+        print("{} is not found".format(ccy))
+    else:
+        print("FX rate for {} is {}".format(ccy, fxRate))
+
+    # remove HKD
+    itemRemoved = currs.pop("HKD")
+    print(currs)
+    print(itemRemoved)
+
+    del currs["RMB"]
+    print(currs)
+
+#dictionaryBasics()
+
+
+
+
+
+
+
+
+
+def getScores():
+    """
+    extend to include TMA and TOA scores
+    """
+    return [['Evelyn', 22, 33], ['Helen', 33, 22],
+            ['George', 33, 20], ['Alice', 22, 21]]
+
+def byScore(elem):  # which element to use for sorting!!
+    return elem[1]+elem[2]
+
+def searchScore(scores, name):
+    score = []
+    for elem in scores:
+        if elem[0] == name:
+            score.append(elem[1]+elem[2])
+            # elem[1] is TMA, elem[2] is TOA
+
+    if score != []:  # check for empty
+        return score[0]
+    else:
+        return 'Not recorded'
+
+def slide7aExample():
+    scores = getScores()
+    print(scores)
+    scores.sort()
+    print(scores)
+    scores.sort(key=byScore, reverse=True)
+    for s in scores:
+        print("{} scored {}".format(s[0], s[1]+s[2]))
+
+    while True:
+        name = input("Enter name of student or <ENTER> to end: ").capitalize()
+        if name == '':
+            break
+
+        print(searchScore(scores, name))
+
+
+
+
+
+
+
+def searchingLists():
+    x = ["lime", "banana", "apple", "kiwi"]
+    month = [ ['January', 31], ['February', 28], ['March', 31], ['April', 30],
+              ['May', 31], ['June', 30], ['July', 31], ['August', 31],
+              ['September', 30], ['October', 31], ['November', 30],
+              ['December', 31] ]
+
+    fruit = "banana"
+    if fruit in x:
+        print("Yes found")
+    else:
+        print("not in there")
+
+    searchMonth = 'june'
+    for m,d in month:
+        if m == searchMonth:
+            print(d)
+            break
+    else:
+        print("Not found")
+
+
+
+
+
+
+def getScores():
+    return [['Evelyn', 22], ['Helen', 33], ['George', 33], ['Alice',22]]
+    """
+    scores = []
+    while True:
+        name = input(("Enter name: ")).capitalize()
+        if name == "":
+            break
+
+        score = int(input("Enter score: "))
+        scores.append([name, score])
+
+    return scores
+    """
+
+def byScore(elem):  # which element to use for sorting!!
+    return elem[1]
+
+def searchScore(scores, name):
+    score = []
+    for elem in scores:
+        if elem[0] == name:
+            score.append(elem[1])  # elem[1] is the score
+
+    if score != []:  # check for empty
+        return score[0]
+    else:
+        return 'Not recorded'
+
+def slide7Example():
+    scores = getScores()
+    print(scores)
+    scores.sort()
+    print(scores)
+    scores.sort(key=byScore, reverse=True)
+    for s in scores:
+        print("{} scored {}".format(s[0], s[1]))
+
+    while True:
+        name = input("Enter name of student or <ENTER> to end: ").capitalize()
+        if name == '':
+            break
+
+        print(searchScore(scores, name))
+
+#slide7Example()
+
+
+
+
+
+
+# split()
+def splitTest():
+    nameList = input("Enter many names : ").split()
+    #nameList = ['Kevin', 'Larry', 'Jim', 'Danny']
+    print(nameList)
+
+    # element
+    for name in nameList:
+        print(name)
+
+    # index
+    for i in range(len(nameList)):
+        print(i, nameList[i])
+
+    # enumerate
+    for i, name in enumerate(nameList):
+        print(i, name)
+
+#splitTest()
+
+
+
+
+
+
+
+def sortingLists():
+    # some list operations
+    x = ["lime", "banana", "apple", "kiwi"]
+    x.sort()  # is a list function
+    print(x)
+    x.reverse()
+    print(x)
+
+    x = ["lime", "banana", "apple", "kiwi"]
+    x = sorted(x, reverse=True) # built-in function
+    print(x)
+
+    # count
+    searchKey = "apple"
+    result = x.count(searchKey)
+    print(result)
+    if result > 0:
+        # index
+        print( x.index(searchKey))
+
+    month = [['January', 31], ['February', 28], ['March', 31], ['April', 30],
+             ['May', 31], ['June', 30], ['July', 31], ['August', 31],
+             ['September', 30], ['October', 31], ['November', 30], ['December', 31]]
+    #month = sorted(month, reverse=True)
+    month.sort()
+    month.reverse()
+    print(month)
+
+
+
+
+
+
+
+
+
+
+
+
+def slide4Example():
+    month = [['January', 31], ['February', 28], ['March', 31], ['April', 30],
+             ['May', 31], ['June', 30], ['July', 31], ['August', 31],
+             ['September', 30], ['October', 31], ['November', 30], ['December', 31]]
+
+    for m in month:  # m = ['January', 31].. then ['February', 28] ...
+        print("{} has {} days".format(m[0], m[1]))
+
+    for i in range(len(month)):  # month[i] = ['January', 31]
+        print("{} has {} days".format(month[i][0], month[i][1]))
+
+    for m,d in month:  # m, d = 'January', 31
+        print("{} has {} days".format(m,d))
+
+#slide4Example()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def slide3Example():
+    month = (31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+    monthName = ('January', 'February', 'March', 'April', 'May', 'June',
+                 'July', 'August', 'September', 'October', 'November',
+                 'December')
+    for i, name in enumerate(monthName):  # (0, 'January')
+        print("{} has {} days".format(name, month[i]))
+
+    for i in range(len(monthName)):
+        print("{} has {} days".format(monthName[i], month[i]))
+
+    for m,d in zip(monthName, month):
+        print("{} has {} days".format(m,d))
+
+
+"""
+enumerate -> add an index and make it a tuple pair
+(0, 'January')
+(1, 'February')
+(2, 'March')
+....
+...
+(11,'December')
+"""
+
+
+
+
+
+
+#####################
+
+
+
+
+
+
+
+
+
+def double(x):
+    z = x * 2   # create a new list to assign to Z
+    #x.append(2)
+    #z = x
+    return z
+
+
+def main():
+    x = [10]
+    y = double(x)   # y is pointing a new list, differ from x
+    print("at line 9", x)
+    print("at line 10", y)
+    x.append(5)
+    print("at line 12", x)
+    print("at line 13", y)
+
