@@ -1,0 +1,280 @@
+"""
+caScore = float(input("what is your CA score? "))
+toaScore = float(input("what is your TOA score? "))
+name = input("what is your name? ")
+name = name.capitalize()
+print(type(name))
+print(name, "scored", caScore+toaScore, "points")
+"""
+x = 4
+y = 2.0
+print(x / y)
+print(x // y)  # integer divide
+print(x % y)   # modulus or remainder
+print(x**y)   # power of
+
+
+
+def lab1q1b():
+    # I: input of fahrenheit
+    fahrenheit = float(input("Enter Fahrenheit: "))
+    # P: conversion to centigrade
+    celsius = 5/9 * (fahrenheit-32)
+
+    # O: display the result
+    print(fahrenheit, "Fahrenheit is equavalent to", round(celsius,2), "degree Celsius")
+
+
+def lab1q1a():
+    fah = float(input("Temperatue in Fahrenhet: "))
+    cel = 5/9
+    convertedValue = cel*(fah-32)
+
+    print("Converted to degree Celsius", convertedValue)
+
+
+"""
+Write a program that reads 3 numbers and displays the sum and average of these 3 numbers.
+"""
+
+def lab1q2():
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    num3 = float(input("Enter the third number: "))
+
+    total = num1 + num2 + num3
+    average = total / 3
+
+    print("The sum of the three numbers are: ", total)
+    print("The average of the three numbers are: ", round(average, 2))
+    #print(average)
+
+"""
+3. Write a program that takes in a 3 digit integer and
+displays the sum and product of the digits. E.g. if the
+number is 123, the sum displayed is 6 and the product
+is also 6.
+"""
+
+def main():
+    # input - a 3 digit integer
+    number = int(input("Enter 3 digit integer: "))
+
+    # processing, break the 3 digit
+    # 123  --> 1     123 // 100 = 1
+    # 789  --> 7     789 // 100 = 7
+    digit1 = number // 100
+    # 123  --> 2     123 // 10 % 10 = 2
+    # 789  --> 8     789 // 10 % 10 = 8
+    digit2 = number // 10 % 10
+    # 123  --> 3     123 % 10 = 3
+    # 789  --> 9     789 % 10 = 9
+    digit3 = number % 10
+
+    total = digit1 + digit2 + digit3
+    product = digit1 * digit2 * digit3
+
+    # display the sum andd product
+    print("Sum =", total)
+    print("Product =", product)
+
+# once we know about string
+
+def main():
+    # input - a 3 digit integer
+    number = input("Enter 3 digit integer: ") # "345"
+    digit1 = int(number[0])  #3
+    digit2 = int(number[1])   #4
+    digit3 = int(number[2])    #5
+    """
+    # processing, break the 3 digit
+    # 123  --> 1     123 // 100 = 1
+    # 789  --> 7     789 // 100 = 7
+    digit1 = number // 100
+    # 123  --> 2     123 // 10 % 10 = 2
+    # 789  --> 8     789 // 10 % 10 = 8
+    digit2 = number // 10 % 10
+    # 123  --> 3     123 % 10 = 3
+    # 789  --> 9     789 % 10 = 9
+    digit3 = number % 10
+    """
+    total = digit1 + digit2 + digit3
+    product = digit1 * digit2 * digit3
+
+    # display the sum andd product
+    print("Sum =", total)
+    print("Product =", product)
+
+main()
+
+
+# lab1-4
+# Write a program that reads in a positive integer
+# representing time in seconds and converts it to hours,
+# minutes and seconds. For example, if the input is 3670
+# seconds, output 1 hr, 1 min and 10 sec.
+
+def main():
+    # Input:  seconds in positive integer
+    timeSeconds = int(input("Enter seconds in integer: "))
+
+    # Processing:  convert into hours, minutes, seconds
+    # 8000 seconds  ==> about 2+ hr
+    # 60x60 = 3600 seconds
+    hours = timeSeconds//3600 % 24   # clock face
+    minutes = timeSeconds//60 % 60   # total minutes
+    seconds = timeSeconds % 60
+
+    # Output: display the result (hours, minutes and seconds)
+    print("The time is", hours, "hr", minutes, "min", seconds, "sec")
+
+
+"""
+5. Write a program that reads an input representing a change which is an amount less than 1 dollar. The program calculates the change into 50, 10, 5 and 1 cent coins. The program then displays the number of each coin required for that change. E.g.
+Enter change: 47      87     101
+50 cent: 0             1       2
+10 cent: 4             3       0
+5 cent: 1              1       0
+1 cent: 2              2       1
+"""
+def main():
+    # Input:  getting the change from user (less than 1 dollar)
+    change = int(input("Enter change: "))
+
+    # Processing:  calculate the no of 50cts
+    cents50 = change // 50
+    # Processing:  calculate the no of 10cts
+    cents10 = (change - cents50 * 50) // 10
+    # Processing:  calculate the no of 5cts
+    cents5 = (change - (cents50 * 50) - (cents10 * 10)) // 5
+    # Processing:  calculate the no of 1cts
+    cents1 = change - (cents50 * 50) - (cents10 * 10) - (cents5 * 5)
+
+    # Output: display the result
+    print("50 cent:", cents50)
+    print("10 cent", cents10)
+    print("5 cent:", cents5)
+    print("1 cent:", cents1)
+
+
+
+"""
+6. A restaurant is offering meals at 50% discount. A service charge (10%) and GST (7%) apply to the discounted cost. While the service charge applies to the discounted price, note that the GST calculation is based on the total of the discounted amount and the service charge.
+
+Write a program that reads in the cost of the meal and displays a detailed receipt.
+
+An example is as follows:
+
+Enter meal amount ($): 120
+
+Receipt
+Cost of meal:     $120.00
+50% discount:     $ 60.00
+Service charge:   $  6.00   # 10% of $60
+GST:              $  4.62   # 7% of $66
+Total amount:     $ 70.62
+"""
+
+def main():
+    # Input:  get cost of meal
+    mealCost = float(input("Please enter the cost: "))
+    mealDiscount = float(input("Please enter the discount: "))
+
+    # processing
+    costAfterDiscount = mealCost * (100-mealDiscount)/100
+    serviceCost = (0.1*costAfterDiscount)
+    gstCost = 0.07*(costAfterDiscount+serviceCost)
+    amountToPay = costAfterDiscount + gstCost + serviceCost
+
+    # display receipt
+    print()
+    print("Receipt")
+    print("Cost of meal:     ${:>10,.2f}".format(mealCost))
+    print("50% discount:     ${:>10,.2f}".format(costAfterDiscount))
+    print("Service charge:   ${:>10,.2f}".format(serviceCost))
+    print("GST:              ${:>10,.2f}".format(gstCost))
+    print("Total amount:     ${:>10,.2f}".format(amountToPay))
+
+
+
+"""
+7. The area of a triangle with sides a, b, c can be determined using Heron’s formula:  ????
+
+where s = ½ (a + b + c) is the semi-perimeter, or half of the triangle's perimeter.
+
+Write a program that reads the lengths of the sides of a triangle and displays the area. Assume that input is valid, i.e. the sides are able to form a triangle.
+
+Import the Math library to use the square root function.
+"""
+from math import sqrt
+
+def main():
+  # input: 3 sides of the triangle (float)
+  a= float(input('length a= '))
+  b= float(input('length b= '))
+  c= float(input('length c= '))
+  # processing: compute the semi-perimeter and area
+  s= 0.5*(a+b+c)
+  areaofTri= sqrt(s*(s-a)*(s-b)*(s-c))
+  # output: display the area
+  print("Area of triangle is {:.1f}".format(areaofTri))
+main()
+
+
+
+
+"""
+8. The formula to compute compound interest C for a loan L at the end of n years at i% interest per annum is as follows:
+
+  C = 𝐿 * (1 + 𝑖/100) ** 𝑛
+
+Write a program that has 3 inputs – loan amount, duration in years and interest rate. The program displays loan with the compound interest based on the formula above.
+"""
+def main():
+    # input: loan amount, duration in years and interest rate
+    loanAmount = float(input("Enter loan amount: "))
+    duration = float(input("Enter loan duration: "))
+    interestRate = float(input("Enter interest rate: "))
+
+    # compute compound interest
+    loanWithInterest = loanAmount * ( 1 + interestRate/100 ) ** duration
+
+    # display loan with compound interest
+    print("Loan with compound interest: ${:>10,.2f}".format(loanWithInterest))
+
+"""
+9. Write a program that reads in a time in 24 hr format. The program displays the time after adding 1 second to the time.
+First example:
+  Enter current hr: 2
+  Enter current min: 58
+  Enter current sec: 59
+  Clock time is 02:58:59
+  After 1 second, the time is 02:59:00
+
+Second example:
+  Enter current hr: 23
+  Enter current min: 59
+  Enter current sec: 59
+  Clock time is 23:59:59
+  After 1 second, the time is 00:00:00
+
+Note: hr is between 0 to 23, min 0 to 59, sec 0 to 59.
+No if statements to be used for this question.
+"""
+def main():
+    # Input: obtain time in hrs, mins, secs from user
+    hrs = int(input("Enter current hr: "))
+    mins = int(input("Enter current min: "))
+    secs = int(input("Enter current sec: "))
+
+    # display current time
+    print("Clock time is {:02d}:{:02d}:{:02d}".format(hrs, mins, secs))
+    # compute current time to seconds and ADD 1
+    timeSeconds = hrs*3600 + mins*60 + secs + 1
+    # re-use Q4 logic to get back hr,min,sec
+    hrs = timeSeconds//3600 % 24   # clock face
+    mins = timeSeconds//60 % 60
+    secs = timeSeconds % 60
+
+    # display the new time
+    print("After 1 second, the time is {:02d}:{:02d}:{:02d}".format(hrs, mins, secs))

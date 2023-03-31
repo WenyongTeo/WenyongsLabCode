@@ -1,0 +1,335 @@
+"""
+1. (String) Write a program that reads in an email address, e.g. joe@suss.edu.sg
+Display the name and the organisation on separate lines. Example:
+    Input email address: joe@suss.edu.sg
+    Name is joe
+    Organisation is suss.edu.sg
+
+Assume input is valid.
+
+2. (String) Write a program that reads in a string input consisting of 2 words with a blank in between. The program displays each of the word in reverse. Example:
+    Enter string: java python
+    Output: avaj nohtyp
+
+Assume input is valid.
+"""
+def main():
+
+    name,email= input('Enter your email here: ').split('@')
+    print('Name is: {} '.format(name))
+    print('Organization is {}'.format(email))
+
+    emailAdd = input("Please enter email: ")
+    emailSplit = emailAdd.split("@")  # emailSplit is a LIST
+    print(emailSplit)
+    print("Name is: "+emailSplit[0])
+    print("Organization is: "+emailSplit[1])
+
+    emailAdd = input("Input email address: "). split("@")
+    name, organisation = emailAdd[0], emailAdd[1]
+    print("Name is ", name)
+    print("Organisation is ", organisation)
+
+
+    # lab2-2
+    userInput = input("Please enter 2 words with one space: ")
+    print(userInput [::-1])  # not the way !!
+
+    word = (input("Enter 2 words of your choice: "))
+    word1, word2 = word.split( )
+    print(word1[::-1], end=" ")
+    print(word2[::-1])
+
+    word1, word2= input('Enter words:').split(' ')
+    print('Reverse is:{} {}'.format(word1[::-1],word2[::-1]))
+    #word[::-1] reverse the whole string
+
+main()
+
+"""
+A computer store allows customers to buy laptops and pay by instalments. The payment plan is based on the purchase amount as given in the following table:
+
+  Amount           Payment
+  ======           =======
+  Less than 1000 : No instalment. Pay full amount.
+  At least 1000  : Either pay in 6 monthly instalments with an addition of 5% of the amount, or pay in 12 monthly instalments with an addition of 10% of the amount. Payment is the result of adding interest to the amount and then dividing by the number of monthly installments.
+
+Write a program that reads in the amount of the laptop. If the amount is at least 1000, prompt the user to select 0, 6 or 12 months, and display the instalment plan. Examples of different input are as follows:
+
+Run 1   Enter amount: 800
+        Please pay $800.00. No instalment plan.
+
+Run 2   Enter amount: 1200
+        Pay in 0, 6 or 12 month instalment: 0
+        Please pay $1200.00. No instalment plan.
+
+Run 3   Enter amount: 2400
+        Pay in 0, 6 or 12 month instalment: 6
+        6 month instalment plan of $420.00 per month
+
+        (Interest on 2400 at 5% for 6 months is 120. Total amount = 2400+120=2520. Divide by 6 = 420)
+"""
+def main():
+    amount = float(input('Enter amount: '))
+
+    if amount >= 1000:
+        instalment = int(input('Pay in 0, 6 or 12 month instalment: '))
+        if instalment == 0:
+            print('Please pay ${:,.2f}. No instalment plan.'.format(amount))
+        elif instalment == 6:
+            monthly = (amount + amount * 0.05) / 6
+            print('6 month instalment plan of ${:,.2f} per month.'.format(monthly))
+        elif instalment == 12:
+            monthly = (amount + amount * 0.1) / 12
+            print('12 month instalment plan of ${:,.2f} per month'.format(monthly))
+        else:
+            print("Invalid month selection")
+    else:
+        print('Please pay ${:,.2f}. No instalment plan.'.format(amount))
+
+main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
+Q9
+Write a simple calculator program that performs arithmetic operation on 2 numbers. Input consists of 3 values, separated by an arithmetic operator, in the following format:
+
+    float operator float  # 23.4+3.5
+
+where float is any decimal number and operator is either +, -, *, /.
+
+    Run 1
+    Enter arithmetic expression: 23.6 + 33.2
+    Result: 56.8
+
+    Run 2
+    Enter arithmetic expression: 85 % 15
+    Invalid arithmetic operator
+
+Assume that the numeric values are valid, but the operator may be invalid.
+"""
+def lab1Q9():
+    expression = input("Enter arithmetic expression: ")
+    num1, operator, num2 = expression.split()  # default is separator is space
+    num1, num2 = float(num1), float(num2)
+
+    if len(operator) != 1 or operator not in "+-*/":
+        print("Invalid arithmetic operator")
+    elif operator == "+":
+        print("Result: {}".format(num1+num2) )
+    elif operator == "-":
+        print("Result: {}".format(num1-num2) )
+    elif operator == "*":
+        print("Result: {}".format(num1*num2) )
+    else:
+        print("Result: {}".format(num1/num2) )
+
+
+
+
+"""
+(String, if…elif…else) Singapore NRIC numbers have the following format #0000000@, where
+- length of the NRIC is 9
+- # is a letter that can be "S", "T", "F" or "G"
+- followed by 7 digits
+- @ is any reference letter A to Z or a to z
+
+Write a program that inputs a NRIC number and displays whether a NRIC is valid. Display “Valid NRIC” or, if it is invalid, one of the following error messages:
+  - Length must be exactly 9
+  - The first letter must be S, T, F or G
+  - Must consist of 7 digits
+  - Reference letter must be A to Z or a to z
+"""
+def main():
+    nric = input('Enter NRIC: ')
+
+    # positive testing
+    if len(nric) == 9:
+        if nric[0] in 'stfgSTFG':
+            if nric[1:8].isdigit():  # pos 1 to 7, exclude 8
+                if nric[-1].isalpha():
+                    print("Valid NRIC")
+                else:
+                    print('Reference letter must be A to Z or a to z')
+            else:
+                print('Must consist of 7 digits')
+        else:
+            print('The first letter must be S, T, F or G')
+    else:
+        print('Length must be exactly 9')
+
+    # negative testing
+    if len(nric) != 9:
+        print('Length must be exactly 9')
+    elif nric[0] not in 'stfgSTFG':
+        print('The first letter must be S, T, F or G')
+    elif not nric[1:8].isdigit():  # pos 1 to 7, exclude 8
+        print('Must consist of 7 digits')
+    elif not nric[-1].isalpha():
+        print('Reference letter must be A to Z or a to z')
+    else:
+        print('Valid')
+
+
+
+def nric():
+    urnric = str(input("Enter your NRIC: "))
+    if len(urnric) != 9:
+        print("Length must be exactly 9")
+    elif urnric[0] not in "stfgSTFG":
+        print('The first letter must be S, T, F or G')
+    elif not urnric[1:8].isdigit():
+        print("Must consists of 7 digits")
+    elif not urnric[8].isalpha():
+        print("Reference letter must be A to Z or a to z")
+    else:
+        print("Valid NRIC")
+
+
+"""
+Lab2 Q5 & Q8
+(if…elif…else) Modify the program in question 5 with the following rate:
+
+  Data           Rate
+  Up to 2GB      $5 flat
+  Above 2GB      $5 + $1 for every 100MB or part thereof
+  Above 4GB      $25 flat
+
+The program also validates that input must be greater than 0. Otherwise, display “Invalid input!”.
+"""
+import math
+
+def main():
+    data = float(input('Amount of data used (GB): '))
+
+    if data <= 0:
+        print("Invalid input!")
+    else:
+
+        if data <= 2:
+            charge = 5
+        elif 2 < data <= 4:
+            # do integer division for better precison
+            charge = math.ceil(5 + ((data * 1000 - 2000) / 100))
+        else: # data > 4
+            charge = 25
+
+        print("Charge is ${:.2f}".format(charge))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
+Write a triangle checker program that reads in the 3 sides of a triangle.
+
+The program checks whether the 3 values can form a triangle. A triangle will not be possible if the sum of any two is less than or equal to the third.
+
+If the values can form a triangle, print the type of triangle according to the table below.
+
+  All 3 sides are equal:    equilateral
+  Any two sides are equal:  isosceles
+  All 3 are unequal:        scalene
+"""
+def lab2Q10():
+    #input
+    side1 = float(input("Enter side 1 here "))
+    side2 = float(input("Enter side 2 here "))
+    side3 = float(input("Enter side 3 here "))
+
+    #processing & output
+    if (side1+side2 <= side3) or (side1+side3 <= side2) or (side3+side2 <= side1):
+        print("This is not a valid triangle")
+    else:  # this is a valid triangle
+        if side1 == side2 == side3:
+            print("This is an equilateral triangle")
+        elif side1 == side2 or side1 == side3 or side2 == side3:
+            print("This is an isosceles triangle")
+        else:
+            print("This is an scalene triangle")
+
+    # using n-way selection
+    if (side1+side2 <= side3) or (side1+side3 <= side2) or (side3+side2 <= side1):
+        print("This is not a valid triangle")
+    elif side1 == side2 == side3:
+        print("This is an equilateral triangle")
+    elif side1 == side2 or side1 == side3 or side2 == side3:
+        print("This is an isosceles triangle")
+    else:
+        print("This is an scalene triangle")
+
+
+
+
+
+
+
+"""
+6. (if…elif…else) Write a program that determines whether two integers are even or odd. Display one of the following messages:
+    - “The 2 numbers are even”
+    - “The 2 numbers are odd”
+    - “One number is even and the other is odd”
+"""
+def lab1Q6():
+    # input
+    no1 = int(input("Enter 1st no: "))
+    no2 = int(input("Enter 2nd no: "))
+
+    # processing & output
+    if no1 % 2 == 0 and no2 % 2 == 0:
+        print('The 2 numbers are even')
+    elif no1 % 2 == 1 & no2 % 2 == 1:
+        print('The 2 numbers are odd')
+    else:
+        print('One number is even and the other is odd')
+
+    # another variation
+    number1 = int(input("Enter 1st no: "))
+    number2 = int(input("Enter 2nd no: "))
+
+    test = number1%2 + number2%2
+    if test == 0:
+        print("The 2 numbers are even")
+    elif test == 2:
+        print('The 2 numbers are odd')
+    else: # test == 1
+        print('One number is even and the other is odd')
